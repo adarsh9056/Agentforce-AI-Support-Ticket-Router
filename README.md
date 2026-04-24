@@ -1,21 +1,57 @@
-# Agentforce-style AI Support Ticket Router
+# Agentforce AI Support Ticket Router
 
-Production-ready full-stack support ticket routing system with AI classification, JWT auth, role-based dashboard, and telemetry.
+Production-ready full-stack AI support routing platform with modern auth UI, role-based operations workspace, telemetry analytics, and automated deployment pipeline.
 
-## Project Name
+## Project
 
-`agentforce-ai-support-ticket-router`
+- **Name:** `agentforce-ai-support-ticket-router`
+- **Repository:** [adarsh9056/Agentforce-AI-Support-Ticket-Router](https://github.com/adarsh9056/Agentforce-AI-Support-Ticket-Router)
 
-## Architecture
+## Live Links
 
-- `frontend` - React + Tailwind + Recharts (Vercel)
-- `backend` - Node.js + Express + PostgreSQL + OpenAI (Render)
-- `database` - Supabase PostgreSQL
+- **Frontend (Vercel):** [https://agentforce-ai-support-ticket-router.vercel.app](https://agentforce-ai-support-ticket-router.vercel.app)
+- **Backend API (Render):** [https://agentforce-ai-support-ticket-router.onrender.com](https://agentforce-ai-support-ticket-router.onrender.com)
+- **Backend health:** [https://agentforce-ai-support-ticket-router.onrender.com/health](https://agentforce-ai-support-ticket-router.onrender.com/health)
 
-## Folder Structure
+## Tech Stack
+
+- **Frontend:** React + Vite + Tailwind CSS + Recharts
+- **Backend:** Node.js + Express + JWT auth
+- **Database:** PostgreSQL on Supabase
+- **AI Classification:** OpenAI (`gpt-3.5-turbo`)
+- **Deploy:** Vercel (frontend) + Render (backend)
+- **CI/CD:** GitHub Actions
+
+## Current Product Capabilities
+
+- Authentication with role-aware access (`user`, `admin`)
+- Ticket creation with AI category classification:
+  - `Billing`, `Technical`, `General`, `Escalate`
+- Ticket lifecycle updates (`open`, `in_progress`, `resolved`, `closed`)
+- Admin telemetry:
+  - tickets per hour
+  - classification accuracy
+  - avg resolution time
+  - open vs closed indicators
+- Modern monochrome UI with improved spacing/typography and animated auth experience
+- Form guidance for validation:
+  - title minimum 5 characters
+  - description minimum 10 characters
+
+## API Routes
+
+- `POST /api/auth/register`
+- `POST /api/auth/login`
+- `POST /api/tickets`
+- `GET /api/tickets`
+- `PATCH /api/tickets/:id/status`
+- `GET /api/metrics`
+
+## Project Structure
 
 ```txt
 agentforce-ai-support-ticket-router/
+├── .github/workflows/ci.yml
 ├── backend/
 │   ├── src/
 │   │   ├── config/
@@ -30,38 +66,19 @@ agentforce-ai-support-ticket-router/
 │   ├── .env.example
 │   ├── server.js
 │   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── pages/
-│   │   └── services/
-│   ├── .env.example
-│   └── package.json
-└── .github/workflows/ci.yml
+└── frontend/
+    ├── src/
+    │   ├── components/
+    │   ├── context/
+    │   ├── pages/
+    │   └── services/
+    ├── .env.example
+    └── package.json
 ```
 
-## Implemented Features
+## Local Development
 
-1. Ticket submission (`title`, `description`, `priority`)
-2. AI ticket classification into `Billing`, `Technical`, `General`, `Escalate`
-3. JWT auth with role-based access (`user`, `admin`)
-4. Admin telemetry panel:
-   - Tickets per hour
-   - Classification accuracy
-   - Avg resolution time
-   - Open vs closed ratio
-5. REST APIs:
-   - `POST /api/tickets`
-   - `GET /api/tickets`
-   - `PATCH /api/tickets/:id/status`
-   - `GET /api/metrics`
-6. GitHub Actions CI/CD with tests, lint, and frontend build
-7. Postman collection included
-
-## Local Setup
-
-### 1) Backend
+### Backend
 
 ```bash
 cd backend
@@ -70,7 +87,7 @@ cp .env.example .env
 npm run dev
 ```
 
-### 2) Frontend
+### Frontend
 
 ```bash
 cd frontend
@@ -79,34 +96,72 @@ cp .env.example .env
 npm run dev
 ```
 
-Frontend defaults to `http://localhost:5173`, backend to `http://localhost:5000`.
+- Frontend local: `http://localhost:5173`
+- Backend local: `http://localhost:5000`
 
-## Supabase SQL
+## Environment Variables
 
-Run `backend/sql/schema.sql` in Supabase SQL editor.
+### Backend (`backend/.env`)
+
+- `DATABASE_URL`
+- `JWT_SECRET`
+- `JWT_EXPIRES_IN=7d`
+- `OPENAI_API_KEY`
+- `NODE_ENV`
+- `PORT` (optional in cloud)
+
+### Frontend (`frontend/.env`)
+
+- `VITE_API_URL=https://agentforce-ai-support-ticket-router.onrender.com`
+
+## Database Setup (Supabase)
+
+Run the schema from:
+
+- `backend/sql/schema.sql`
+
+This creates:
+
+- `users`
+- `tickets`
+- `telemetry_logs`
+
+## Testing & Quality
+
+### Backend
+
+```bash
+cd backend
+npm run lint
+npm test
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm run lint
+npm run build
+```
 
 ## Postman
 
-Import: `backend/postman/ai-ticket-router.postman_collection.json`
+Import:
 
-## Deployment (Free)
+- `backend/postman/ai-ticket-router.postman_collection.json`
 
-### Backend -> Render
+## Deployment Notes
 
-1. Push repo to GitHub
-2. Create Render Web Service from repo
-3. Build command: `cd backend && npm install`
-4. Start command: `cd backend && node server.js`
-5. Add backend env vars (`DATABASE_URL`, `JWT_SECRET`, `OPENAI_API_KEY`)
+### Render (Backend)
 
-### Frontend -> Vercel
+- Root directory: `backend`
+- Build command: `npm install`
+- Start command: `node server.js`
+- Use Supabase pooler URI in `DATABASE_URL`
 
-1. Import repo on Vercel
-2. Set root directory to `frontend`
-3. Add env var `VITE_API_URL=https://your-render-app.onrender.com`
-4. Deploy
+### Vercel (Frontend)
 
-## Live URLs
-
-- Frontend URL: `https://<your-vercel-project>.vercel.app`
-- Backend URL: `https://<your-render-service>.onrender.com`
+- Root directory: `frontend`
+- Build command: `npm run build`
+- Output directory: `dist`
+- Env: `VITE_API_URL` pointing to Render backend URL
