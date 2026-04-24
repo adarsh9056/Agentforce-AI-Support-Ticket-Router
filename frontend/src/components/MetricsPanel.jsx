@@ -7,15 +7,15 @@ export default function MetricsPanel({ metrics }) {
   }));
 
   return (
-    <section className="space-y-4 rounded border border-slate-800 bg-slate-900 p-4">
-      <h2 className="text-lg font-semibold">Telemetry (Admin)</h2>
+    <section className="space-y-4 rounded-2xl border border-slate-800/80 bg-slate-900/50 p-5">
+      <h2 className="text-lg font-semibold text-white">Telemetry (Admin)</h2>
       <div className="grid gap-3 md:grid-cols-4">
         <MetricCard label="Classification Accuracy" value={`${(metrics.classificationAccuracy || 0) * 100}%`} />
         <MetricCard label="Avg Resolution Time" value={`${(metrics.avgResolutionTimeHours || 0).toFixed(2)}h`} />
         <MetricCard label="Open Tickets" value={metrics.openCount || 0} />
         <MetricCard label="Resolved Tickets" value={metrics.resolvedCount || 0} />
       </div>
-      <div className="h-60 rounded bg-slate-950 p-2">
+      <div className="h-64 rounded-xl border border-slate-800 bg-slate-950 p-2">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart data={chartData}>
             <XAxis dataKey="hour" stroke="#94a3b8" />
@@ -31,7 +31,7 @@ export default function MetricsPanel({ metrics }) {
 
 function MetricCard({ label, value }) {
   return (
-    <div className="rounded border border-slate-800 bg-slate-950 p-3">
+    <div className="rounded-xl border border-slate-800 bg-slate-950 p-3">
       <p className="text-xs text-slate-400">{label}</p>
       <p className="text-xl font-semibold text-cyan-300">{value}</p>
     </div>

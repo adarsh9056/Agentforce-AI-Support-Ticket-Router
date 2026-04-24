@@ -1,14 +1,7 @@
 const { Pool } = require("pg");
+const { createPoolConfig } = require("./dbConfig");
 
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl:
-    process.env.NODE_ENV === "production"
-      ? {
-          rejectUnauthorized: false,
-        }
-      : false,
-});
+const pool = new Pool(createPoolConfig());
 
 async function query(text, params = []) {
   return pool.query(text, params);

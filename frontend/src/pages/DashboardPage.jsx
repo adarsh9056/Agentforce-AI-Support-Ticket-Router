@@ -46,12 +46,43 @@ export default function DashboardPage() {
     if (isAdmin) loadMetrics();
   }
 
+  const openCount = tickets.filter((ticket) => ticket.status === "open").length;
+  const resolvedCount = tickets.filter((ticket) => ticket.status === "resolved").length;
+  const escalatedCount = tickets.filter((ticket) => ticket.category === "Escalate").length;
+
   return (
     <div className="space-y-6">
-      {error ? <p className="rounded border border-red-900 bg-red-950 p-3 text-sm text-red-300">{error}</p> : null}
-      <TicketForm onCreated={handleCreated} />
-      <TicketsTable tickets={tickets} onUpdated={handleUpdated} />
+      <section className="animate-fade-up rounded-2xl border border-slate-800/80 bg-slate-900/50 p-5">
+        <p className="text-xs font-medium uppercase tracking-[0.24em] text-cyan-300">Support Operations</p>
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-white">AI Ticket Routing Workspace</h1>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400">
+          Manage incoming tickets, adjust workflow status, and monitor response health from one dashboard.
+        </p>
+
+        <div className="mt-5 grid gap-3 sm:grid-cols-3">
+          <StatPill label="Open Tickets" value={openCount} />
+          <StatPill label="Resolved Tickets" value={resolvedCount} />
+          <StatPill label="Escalated" value={escalatedCount} />
+        </div>
+      </section>
+
+      {error ? <p className="rounded-xl border border-red-900 bg-red-950 p-3 text-sm text-red-300">{error}</p> : null}
+
+      <div className="grid gap-6 xl:grid-cols-[1fr_1.5fr]">
+        <TicketForm onCreated={handleCreated} />
+        <TicketsTable tickets={tickets} onUpdated={handleUpdated} />
+      </div>
+
       {isAdmin && metrics ? <MetricsPanel metrics={metrics} /> : null}
+    </div>
+  );
+}
+
+function StatPill({ label, value }) {
+  return (
+    <div className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 transition duration-300 hover:translate-y-[-2px] hover:border-slate-700">
+      <p className="text-xs uppercase tracking-[0.12em] text-slate-400">{label}</p>
+      <p className="mt-1 text-2xl font-semibold text-cyan-300">{value}</p>
     </div>
   );
 }

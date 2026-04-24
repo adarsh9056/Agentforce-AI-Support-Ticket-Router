@@ -20,8 +20,8 @@ export default function TicketsTable({ tickets, onUpdated }) {
   }
 
   return (
-    <div className="rounded border border-slate-800 bg-slate-900 p-4">
-      <h2 className="mb-3 text-lg font-semibold">Tickets</h2>
+    <div className="rounded-2xl border border-slate-800/80 bg-slate-900/50 p-5">
+      <h2 className="mb-3 text-lg font-semibold text-white">Tickets Queue</h2>
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead className="text-slate-400">
@@ -35,15 +35,23 @@ export default function TicketsTable({ tickets, onUpdated }) {
           </thead>
           <tbody>
             {tickets.map((ticket) => (
-              <tr key={ticket.id} className="border-t border-slate-800">
-                <td className="py-2">{ticket.title}</td>
-                <td className="py-2">{ticket.priority}</td>
-                <td className="py-2">{ticket.category}</td>
-                <td className="py-2">{ticket.status}</td>
+              <tr key={ticket.id} className="border-t border-slate-800/70">
+                <td className="py-3 text-slate-200">{ticket.title}</td>
+                <td className="py-3 capitalize text-slate-300">{ticket.priority}</td>
+                <td className="py-3">
+                  <span className="rounded-full bg-indigo-500/15 px-2 py-1 text-xs text-indigo-300">
+                    {ticket.category}
+                  </span>
+                </td>
+                <td className="py-3">
+                  <span className="rounded-full bg-cyan-400/10 px-2 py-1 text-xs text-cyan-300">
+                    {ticket.status}
+                  </span>
+                </td>
                 {isAdmin ? (
-                  <td className="py-2">
+                  <td className="py-3">
                     <select
-                      className="rounded border border-slate-700 bg-slate-950 px-2 py-1"
+                      className="rounded-lg border border-slate-700 bg-slate-950 px-2 py-1.5"
                       value={ticket.status}
                       onChange={(event) => updateStatus(ticket.id, event.target.value)}
                     >

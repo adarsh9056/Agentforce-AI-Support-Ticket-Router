@@ -1,1 +1,47 @@
 @import "tailwindcss";
+
+@keyframes fade-up-soft {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slow-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes subtle-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up-soft 0.55s ease-out both;
+}
+
+.animate-float-slow {
+  animation: slow-float 5s ease-in-out infinite;
+}
+
+.animate-gradient-pan {
+  background-size: 140% 140%;
+  animation: subtle-pan 10s ease-in-out infinite;
+}

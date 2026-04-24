@@ -32,24 +32,24 @@ export default function TicketForm({ onCreated }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-3 rounded border border-slate-800 bg-slate-900 p-4">
-      <h2 className="text-lg font-semibold">Submit Ticket</h2>
+    <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-slate-800/80 bg-slate-900/50 p-5">
+      <h2 className="text-lg font-semibold text-white">Submit New Ticket</h2>
       <input
-        className="w-full rounded border border-slate-700 bg-slate-950 px-3 py-2"
+        className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 outline-none ring-cyan-400/30 focus:ring"
         placeholder="Title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
       />
       <textarea
-        className="h-28 w-full rounded border border-slate-700 bg-slate-950 px-3 py-2"
+        className="h-28 w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 outline-none ring-cyan-400/30 focus:ring"
         placeholder="Description"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required
       />
       <select
-        className="w-full rounded border border-slate-700 bg-slate-950 px-3 py-2"
+        className="w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 outline-none ring-cyan-400/30 focus:ring"
         value={priority}
         onChange={(e) => setPriority(e.target.value)}
       >
@@ -58,11 +58,11 @@ export default function TicketForm({ onCreated }) {
         <option value="high">High</option>
         <option value="critical">Critical</option>
       </select>
-      {error ? <p className="text-sm text-red-400">{error}</p> : null}
+      {error ? <p className="text-sm text-rose-400">{error}</p> : null}
       <button
         type="submit"
         disabled={loading}
-        className="rounded bg-cyan-500 px-4 py-2 font-medium text-slate-950 disabled:opacity-60"
+        className="rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 px-4 py-2.5 font-semibold text-slate-950 disabled:opacity-60"
       >
         {loading ? "Creating..." : "Create Ticket"}
       </button>

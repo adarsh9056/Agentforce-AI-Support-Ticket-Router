@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { useAuth } from "./context/AuthContext";
 import Navbar from "./components/Navbar";
 import DashboardPage from "./pages/DashboardPage";
@@ -12,9 +12,12 @@ function ProtectedRoute({ children }) {
 }
 
 function App() {
+  const location = useLocation();
+  const isAuthRoute = location.pathname === "/login" || location.pathname === "/register";
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">
-      <Navbar />
+      {!isAuthRoute ? <Navbar /> : null}
       <main className="mx-auto max-w-6xl px-4 py-6">
         <Routes>
           <Route path="/login" element={<LoginPage />} />
