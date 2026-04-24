@@ -34,16 +34,19 @@ export default function TicketForm({ onCreated }) {
   return (
     <form onSubmit={onSubmit} className="space-y-4 rounded-2xl border border-slate-800/80 bg-slate-900/50 p-5">
       <h2 className="text-lg font-semibold text-white">Submit New Ticket</h2>
+      <p className="text-xs text-slate-400">
+        Title (min 5 chars) and Description (min 10 chars) are required.
+      </p>
       <input
         className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 outline-none"
-        placeholder="Title"
+        placeholder="Title (min 5 chars)"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         required
       />
       <textarea
         className="input-accent h-28 w-full rounded-xl border border-slate-700 bg-slate-950 px-3 py-2.5 outline-none"
-        placeholder="Description"
+        placeholder="Description (min 10 chars)"
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         required

@@ -1,25 +1,6 @@
 @import "tailwindcss";
 
-:root,
-.theme-green {
-  --accent-1: #34d399;
-  --accent-2: #14b8a6;
-  --accent-3: #65a30d;
-  --accent-text: #6ee7b7;
-  --accent-ring: rgba(52, 211, 153, 0.3);
-  --accent-soft: rgba(52, 211, 153, 0.15);
-}
-
-.theme-pink {
-  --accent-1: #f472b6;
-  --accent-2: #ec4899;
-  --accent-3: #a855f7;
-  --accent-text: #f9a8d4;
-  --accent-ring: rgba(244, 114, 182, 0.3);
-  --accent-soft: rgba(244, 114, 182, 0.15);
-}
-
-.theme-mono {
+:root {
   --accent-1: #e5e7eb;
   --accent-2: #9ca3af;
   --accent-3: #6b7280;
