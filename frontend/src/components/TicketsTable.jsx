@@ -39,12 +39,12 @@ export default function TicketsTable({ tickets, onUpdated }) {
                 <td className="py-3 text-slate-200">{ticket.title}</td>
                 <td className="py-3 capitalize text-slate-300">{ticket.priority}</td>
                 <td className="py-3">
-                  <span className="rounded-full bg-indigo-500/15 px-2 py-1 text-xs text-indigo-300">
+                  <span className="badge-accent rounded-full px-2 py-1 text-xs">
                     {ticket.category}
                   </span>
                 </td>
                 <td className="py-3">
-                  <span className="rounded-full bg-cyan-400/10 px-2 py-1 text-xs text-cyan-300">
+                  <span className="badge-accent rounded-full px-2 py-1 text-xs">
                     {ticket.status}
                   </span>
                 </td>

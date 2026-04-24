@@ -21,7 +21,7 @@ export default function MetricsPanel({ metrics }) {
             <XAxis dataKey="hour" stroke="#94a3b8" />
             <YAxis stroke="#94a3b8" />
             <Tooltip />
-            <Line type="monotone" dataKey="count" stroke="#22d3ee" strokeWidth={2} />
+            <Line type="monotone" dataKey="count" stroke="var(--accent-1)" strokeWidth={2} />
           </LineChart>
         </ResponsiveContainer>
       </div>
@@ -33,7 +33,7 @@ function MetricCard({ label, value }) {
   return (
     <div className="rounded-xl border border-slate-800 bg-slate-950 p-3">
       <p className="text-xs text-slate-400">{label}</p>
-      <p className="text-xl font-semibold text-cyan-300">{value}</p>
+      <p className="text-accent text-xl font-semibold">{value}</p>
     </div>
   );
 }

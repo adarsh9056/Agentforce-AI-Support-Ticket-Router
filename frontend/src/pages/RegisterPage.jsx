@@ -33,7 +33,7 @@ export default function RegisterPage() {
       />
 
       <section className="animate-fade-up rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/40 backdrop-blur">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-300">Create account</p>
+        <p className="text-accent text-xs font-medium uppercase tracking-[0.2em]">Create account</p>
         <h1 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-white">Set up your Agentforce profile</h1>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-400">
           Register as user or admin and start managing ticket flow with priority-based triage.
@@ -41,14 +41,14 @@ export default function RegisterPage() {
 
         <form onSubmit={onSubmit} className="mt-8 space-y-4">
           <input
-            className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none ring-cyan-400/30 transition duration-300 focus:-translate-y-[1px] focus:ring"
+            className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition duration-300 focus:-translate-y-[1px]"
             placeholder="Full name"
             value={form.name}
             onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
             required
           />
           <input
-            className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none ring-cyan-400/30 transition duration-300 focus:-translate-y-[1px] focus:ring"
+            className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition duration-300 focus:-translate-y-[1px]"
             placeholder="Email"
             value={form.email}
             onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
@@ -56,14 +56,14 @@ export default function RegisterPage() {
           />
           <input
             type="password"
-            className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none ring-cyan-400/30 transition duration-300 focus:-translate-y-[1px] focus:ring"
+            className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition duration-300 focus:-translate-y-[1px]"
             placeholder="Password"
             value={form.password}
             onChange={(e) => setForm((p) => ({ ...p, password: e.target.value }))}
             required
           />
           <select
-            className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none ring-cyan-400/30 transition duration-300 focus:-translate-y-[1px] focus:ring"
+            className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition duration-300 focus:-translate-y-[1px]"
             value={form.role}
             onChange={(e) => setForm((p) => ({ ...p, role: e.target.value }))}
           >
@@ -75,7 +75,7 @@ export default function RegisterPage() {
 
           <button
             type="submit"
-            className="w-full rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 py-3 font-semibold text-slate-950 transition duration-300 hover:translate-y-[-1px] hover:opacity-90"
+            className="bg-accent-gradient w-full rounded-xl py-3 font-semibold text-slate-950 transition duration-300 hover:translate-y-[-1px] hover:opacity-90"
           >
             Create account
           </button>
@@ -83,7 +83,7 @@ export default function RegisterPage() {
 
         <p className="mt-5 text-sm text-slate-400">
           Already have access?{" "}
-          <Link className="font-medium text-cyan-400 hover:text-cyan-300" to="/login">
+          <Link className="text-accent font-medium hover:opacity-80" to="/login">
             Sign in
           </Link>
         </p>

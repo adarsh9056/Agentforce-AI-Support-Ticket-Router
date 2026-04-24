@@ -24,7 +24,7 @@ export default function LoginPage() {
   return (
     <div className="grid min-h-[calc(100svh-6rem)] items-center gap-8 py-6 lg:grid-cols-[1.05fr_1fr]">
       <section className="animate-fade-up rounded-3xl border border-slate-800 bg-slate-900/70 p-8 shadow-2xl shadow-slate-950/40 backdrop-blur">
-        <p className="text-xs font-medium uppercase tracking-[0.2em] text-cyan-300">Welcome back</p>
+        <p className="text-accent text-xs font-medium uppercase tracking-[0.2em]">Welcome back</p>
         <h1 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-white">Sign in to Agentforce Router</h1>
         <p className="mt-2 max-w-xl text-sm leading-relaxed text-slate-400">
           Access routing controls, assign tickets quickly, and monitor support telemetry in real time.
@@ -34,7 +34,7 @@ export default function LoginPage() {
           <label className="block space-y-2">
             <span className="text-xs uppercase tracking-[0.14em] text-slate-300">Email address</span>
             <input
-              className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none ring-cyan-400/30 transition duration-300 focus:-translate-y-[1px] focus:ring"
+              className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition duration-300 focus:-translate-y-[1px]"
               placeholder="you@company.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -46,7 +46,7 @@ export default function LoginPage() {
             <span className="text-xs uppercase tracking-[0.14em] text-slate-300">Password</span>
             <input
               type="password"
-              className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none ring-cyan-400/30 transition duration-300 focus:-translate-y-[1px] focus:ring"
+              className="input-accent w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none transition duration-300 focus:-translate-y-[1px]"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -58,7 +58,7 @@ export default function LoginPage() {
 
           <button
             type="submit"
-            className="w-full rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 py-3 font-semibold text-slate-950 transition duration-300 hover:translate-y-[-1px] hover:opacity-90"
+            className="bg-accent-gradient w-full rounded-xl py-3 font-semibold text-slate-950 transition duration-300 hover:translate-y-[-1px] hover:opacity-90"
           >
             Sign in
           </button>
@@ -66,7 +66,7 @@ export default function LoginPage() {
 
         <p className="mt-5 text-sm text-slate-400">
           New to Agentforce?{" "}
-          <Link className="font-medium text-cyan-400 hover:text-cyan-300" to="/register">
+          <Link className="text-accent font-medium hover:opacity-80" to="/register">
             Create an account
           </Link>
         </p>

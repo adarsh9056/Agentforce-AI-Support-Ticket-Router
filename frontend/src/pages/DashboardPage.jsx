@@ -53,7 +53,7 @@ export default function DashboardPage() {
   return (
     <div className="space-y-6">
       <section className="animate-fade-up rounded-2xl border border-slate-800/80 bg-slate-900/50 p-5">
-        <p className="text-xs font-medium uppercase tracking-[0.24em] text-cyan-300">Support Operations</p>
+        <p className="text-accent text-xs font-medium uppercase tracking-[0.24em]">Support Operations</p>
         <h1 className="mt-2 text-2xl font-semibold tracking-tight text-white">AI Ticket Routing Workspace</h1>
         <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-400">
           Manage incoming tickets, adjust workflow status, and monitor response health from one dashboard.
@@ -82,7 +82,7 @@ function StatPill({ label, value }) {
   return (
     <div className="rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 transition duration-300 hover:translate-y-[-2px] hover:border-slate-700">
       <p className="text-xs uppercase tracking-[0.12em] text-slate-400">{label}</p>
-      <p className="mt-1 text-2xl font-semibold text-cyan-300">{value}</p>
+      <p className="text-accent mt-1 text-2xl font-semibold">{value}</p>
     </div>
   );
 }
